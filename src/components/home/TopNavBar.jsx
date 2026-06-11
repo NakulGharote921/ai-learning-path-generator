@@ -23,13 +23,13 @@ function TopNavBar() {
         <div className="hidden md:flex items-center gap-lg">
           <Link
             className="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-primary/5 transition-colors duration-200 px-3 py-2 rounded-md"
-            to="/#features"
+            to="/features"
           >
             Features
           </Link>
           <Link
             className="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-primary/5 transition-colors duration-200 px-3 py-2 rounded-md"
-            to="/"
+            to="/methodology"
           >
             Methodology
           </Link>
