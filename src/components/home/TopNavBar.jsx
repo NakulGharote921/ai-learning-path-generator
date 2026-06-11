@@ -50,7 +50,7 @@ function TopNavBar() {
         <div className="flex items-center gap-4">
           <Link
             className="hidden md:inline-flex font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
-            to="/"
+            to="/login"
           >
             Log In
           </Link>
