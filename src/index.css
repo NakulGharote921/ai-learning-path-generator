@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+  background: #fff8de;
+}
+
+body {
+  min-height: 100vh;
+  background: #fff8de;
+}
+
+.signup-page {
+  background:
+    radial-gradient(circle at top left, rgba(255, 116, 68, 0.12), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(63, 82, 117, 0.12), transparent 34%),
+    #fff8de;
+}
+
+.signup-hero {
+  animation: fade-slide-in 700ms ease-out both;
+}
+
+.signup-form {
+  animation: fade-slide-in 700ms ease-out 90ms both;
+}
+
+.signup-card {
+  animation: lift-in 700ms ease-out 160ms both;
+}
+
+.hero-video-shell {
+  position: absolute;
+  inset: 1.5rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.2));
+  box-shadow: 0 24px 60px rgba(21, 43, 92, 0.12);
+}
+
+.hero-video {
+  animation: video-zoom 10s ease-in-out infinite alternate;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lift-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes video-zoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.03);
+  }
+}
