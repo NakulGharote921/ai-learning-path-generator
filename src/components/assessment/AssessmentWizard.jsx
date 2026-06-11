@@ -10,7 +10,7 @@ function AssessmentWizard() {
 
   const isMultiSelectStep = activeStep === 3
   const currentSelection = selections[activeStep]
-  const canContinue = isMultiSelectStep
+  const canContinue = isMultiSelectStep 
     ? Array.isArray(currentSelection) && currentSelection.length > 0
     : Boolean(currentSelection)
 

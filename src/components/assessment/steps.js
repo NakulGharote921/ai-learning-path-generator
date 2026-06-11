@@ -12,7 +12,7 @@ export const stepContent = {
     description:
       "We'll calibrate your initial curriculum based on your current comfort level.",
     options: [
-      {
+      { 
         value: 'beginner',
         icon: 'child_care',
         title: 'Beginner',

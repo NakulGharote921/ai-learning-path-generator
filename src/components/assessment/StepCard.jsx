@@ -8,6 +8,6 @@ function StepCard({ className = '', children, onClick, selected, value }) {
       {children}
     </div>
   )
-}
+} 
 
 export default StepCard

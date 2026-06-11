@@ -31,7 +31,7 @@ function LibraryHeader() {
           <span className="font-label-sm text-label-sm text-on-surface-variant">K</span>
         </div>
       </div>
-    </header>
+    </header>  
   )
 }
 
