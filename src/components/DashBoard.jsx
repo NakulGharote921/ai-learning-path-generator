@@ -7,6 +7,7 @@ import KPICards from './dashboard/KPICards'
 import RoadmapSection from './dashboard/RoadmapSection'
 import AchievementsSection from './dashboard/AchievementsSection'
 import AIRecommendations from './dashboard/AIRecommendations'
+import { Link } from 'react-router-dom'
 
 function DashBoard() {
   return (
@@ -113,17 +114,103 @@ function DashBoard() {
             {/* AI Recommendations */}
             <AIRecommendations />
 
-            {/* Placeholder for future widget */}
-            <div className="bg-white rounded-[24px] p-margin shadow-soft border border-primary/10 opacity-50 border-dashed">
-              <div className="flex items-center justify-center h-32 flex-col gap-2">
-                <span className="material-symbols-outlined text-outline">
-                  add_box
-                </span>
-                <span className="font-label-sm text-label-sm text-outline">
-                  Add Widget
+            {/* Projects Shortcut */}
+            <Link
+              to="/projects"
+              className="bg-white rounded-[24px] p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="font-label-sm text-label-sm text-outline uppercase tracking-wider">
+                    Projects
+                  </p>
+                  <h3 className="font-headline-md text-headline-md text-primary font-semibold">
+                    Open project builds
+                  </h3>
+                  <p className="font-body-sm text-body-sm text-outline mt-1">
+                    Practice with guided, hands-on builds and skill-based filters.
+                  </p>
+                </div>
+                <span className="material-symbols-outlined text-primary text-3xl">
+                  rocket_launch
                 </span>
               </div>
-            </div>
+            </Link>
+
+            {/* Analytics Shortcut */}
+            <Link
+              to="/analytics"
+              className="bg-white rounded-[24px] p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="font-label-sm text-label-sm text-outline uppercase tracking-wider">
+                    Analytics
+                  </p>
+                  <h3 className="font-headline-md text-headline-md text-primary font-semibold">
+                    Open performance insights
+                  </h3>
+                  <p className="font-body-sm text-body-sm text-outline mt-1">
+                    Review focus hours, streaks, and skill growth in one place.
+                  </p>
+                </div>
+                <span className="material-symbols-outlined text-primary text-3xl">
+                  monitoring
+                </span>
+              </div>
+            </Link>
+
+            <Link
+              to="/support"
+              className="bg-white rounded-[24px] p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="font-label-sm text-label-sm text-outline uppercase tracking-wider">
+                    Support
+                  </p>
+                  <h3 className="font-headline-md text-headline-md text-primary font-semibold">
+                    Open the help center
+                  </h3>
+                  <p className="font-body-sm text-body-sm text-outline mt-1">
+                    Search FAQs, submit tickets, and contact the team.
+                  </p>
+                </div>
+                <span className="material-symbols-outlined text-primary text-3xl">
+                  help
+                </span>
+              </div>
+            </Link>
+
+            {/* Profile Shortcut */}
+            <Link
+              to="/profile"
+              className="bg-white rounded-[24px] p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-4">
+                  <img
+                    alt="User Profile"
+                    className="w-14 h-14 rounded-full object-cover border-2 border-primary/10"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh57RuBb78KL0EltHBGn80cFN-buHxOy9wFbP8yQ0Rz6dlGOWMSeHYh-Ircdq5FWuNtZn8o0GmQy5iTCtznij1qY23PtPVLTvQfwqidqDkUhpiftoq77CNAtzX77RMgFGrIBG_e1ufPaf7CHLIpw6J5zDjXfm-vYDQZhI9BLrPNcibpUlTIGCmNrPXqrIVTGmV1emCaQTo9UcjR4M__F3t7ahN2zmV1opyza-GplM73MFJYXeGg33zcn95-Q6xEnZRM49edjvMPM8"
+                  />
+                  <div>
+                    <p className="font-label-sm text-label-sm text-outline uppercase tracking-wider">
+                      Profile
+                    </p>
+                    <h3 className="font-headline-md text-headline-md text-primary font-semibold">
+                      View your learning profile
+                    </h3>
+                    <p className="font-body-sm text-body-sm text-outline mt-1">
+                      Check goals, badges, and progress in one place.
+                    </p>
+                  </div>
+                </div>
+                <span className="material-symbols-outlined text-primary text-3xl">
+                  person
+                </span>
+              </div>
+            </Link>
           </div>
         </div>
       </main>
