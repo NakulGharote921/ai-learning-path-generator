@@ -1,5 +1,4 @@
 import React from 'react'
-import TopNavBar from './home/TopNavBar'
 
 function Methodology() {
   return (
@@ -45,7 +44,6 @@ function Methodology() {
     `,
           }}
         />
-        <TopNavBar />
         <main className="pt-32 pb-xl">
           {/* Hero Section */}
           <section className="max-w-max_width mx-auto px-margin mb-xl text-center">

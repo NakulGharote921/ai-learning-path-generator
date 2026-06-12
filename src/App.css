@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+.invalid-entry{
+    color: red;
+    font-size: small;
+    text-align: center;
+}

@@ -1,7 +1,15 @@
+import '../../App.css'
+import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom'
 
-function SignupForm() {
+function SignInForm() {
   const navigate = useNavigate()
+  function submit(data){
+    console.log(data);
+    navigate('/dashboard')
+    
+  }
+  const { register, handleSubmit, formState:{errors}} = useForm(); 
 
   return (
     <div className="signup-form w-full md:w-1/2 h-full bg-surface overflow-y-auto flex items-center justify-center p-md md:p-xl">
@@ -21,7 +29,7 @@ function SignupForm() {
               login
             </span>
             <span className="font-label-md text-label-md text-on-surface">
-              Continue with Google
+              Continue with Apple
             </span>
           </button>
           <button className="flex items-center justify-center gap-sm w-full py-sm px-md rounded-xl border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-200">
@@ -44,10 +52,7 @@ function SignupForm() {
 
         <form
           className="flex flex-col gap-md"
-          onSubmit={(event) => {
-            event.preventDefault()
-            navigate('/assessment')
-          }}
+          onSubmit={handleSubmit(submit)}
         >
           <div className="flex flex-col gap-xs">
             <label className="font-label-sm text-label-sm text-on-surface-variant ml-xs" htmlFor="email">
@@ -57,8 +62,21 @@ function SignupForm() {
               className="w-full bg-surface-container-lowest border border-primary-container/20 rounded-xl px-md py-sm font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-200"
               id="email"
               placeholder="you@example.com"
-              type="email"
+              type="text"
+              {
+                ...register("email",{
+                  required:"email is required",
+                  pattern:{
+                    value:/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message:"invalid email"
+                  }
+                })
+              }
             />
+            
+        {
+          errors.email && <span className='invalid-entry'>{errors.email.message}</span>
+        }
           </div>
 
           <div className="flex flex-col gap-xs">
@@ -68,9 +86,25 @@ function SignupForm() {
             <input
               className="w-full bg-surface-container-lowest border border-primary-container/20 rounded-xl px-md py-sm font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-200"
               id="password"
-              placeholder="••••••••"
+              placeholder="password"
               type="password"
+              {
+                ...register('password',{
+                  required:"password is required",
+                  minLength:{
+                    value:6,
+                    message:"password must be atleast 6 characters"
+                  },
+                  maxLength:{
+                    value:20,
+                    message:"password must be atmost 20 characters"
+                  }
+                })
+              }
             />
+            {
+            errors.password && <span className='invalid-entry'>{errors.password.message}</span>
+          }
           </div>
 
           <div className="flex items-center justify-between mt-xs mb-sm">
@@ -78,6 +112,9 @@ function SignupForm() {
               <input
                 className="rounded border-outline-variant text-primary focus:ring-primary bg-surface-container-lowest"
                 type="checkbox"
+                {
+                  ...register("remember")
+                }
               />
               <span className="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface transition-colors">
                 Remember me
@@ -113,4 +150,4 @@ function SignupForm() {
   )
 }
 
-export default SignupForm
+export default SignInForm

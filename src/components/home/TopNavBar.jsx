@@ -41,7 +41,7 @@ function TopNavBar() {
           </Link>
           <Link
             className="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-primary/5 transition-colors duration-200 px-3 py-2 rounded-md"
-            to="/"
+            to="/resources"
           >
             Resources
           </Link>
@@ -50,9 +50,9 @@ function TopNavBar() {
         <div className="flex items-center gap-4">
           <Link
             className="hidden md:inline-flex font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
-            to="/login"
+            to="/signIn"
           >
-            Log In
+            Sign In
           </Link>
           <Link
             className="inline-flex items-center justify-center font-label-md text-label-md bg-[#FF7444] text-white px-6 py-2.5 rounded-lg shadow-button hover:bg-[#e6683d] scale-95 active:scale-90 transition-transform font-bold tracking-wide"

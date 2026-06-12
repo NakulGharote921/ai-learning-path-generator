@@ -13,25 +13,35 @@ function Resources() {
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&family=Inter:wght@400;500&family=Geist:wght@500;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
   {/* Tailwind CSS */}
-  <style dangerouslySetInnerHTML={{__html: "\n        body {\n            background-color: #f9f9ff;\n            color: #151c29;\n            font-family: 'Inter', sans-serif;\n            overflow-x: hidden;\n        }\n        .material-symbols-outlined {\n            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;\n        }\n        .warm-tech-card {\n            background: rgba(183, 189, 247, 0.15);\n            backdrop-filter: blur(8px);\n            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n        }\n        .warm-tech-card:hover {\n            box-shadow: 0px 10px 30px rgba(87, 106, 143, 0.08);\n            transform: translateY(-4px);\n            border: 1px solid rgba(63, 82, 117, 0.1);\n        }\n        .ai-gradient-border {\n            position: relative;\n            background: #fff;\n            background-clip: padding-box;\n            border: 1px solid transparent;\n        }\n        .ai-gradient-border::before {\n            content: '';\n            position: absolute;\n            top: 0; right: 0; bottom: 0; left: 0;\n            z-index: -1;\n            margin: -1px;\n            border-radius: inherit;\n            background: linear-gradient(135deg, #576A8F, #B7BDF7);\n        }\n        .search-focus:focus-within {\n            box-shadow: 0 0 0 2px #3f5275;\n        }\n        .glass-nav {\n            background: rgba(249, 249, 255, 0.8);\n            backdrop-filter: blur(12px);\n        }\n    " }} />
-  {/* TopNavBar */}
-  <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm">
-    <div className="flex justify-between items-center px-margin max-w-max_width mx-auto h-xl">
-      <div className="flex items-center gap-md">
-        <span className="font-headline-md text-headline-md font-bold text-primary">Cognitive Flow</span>
-        <div className="hidden md:flex gap-md items-center">
-          <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Features</a>
-          <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Methodology</a>
-          <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Pricing</a>
-          <a className="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">Resources</a>
-        </div>
-      </div>
-      <div className="flex items-center gap-sm">
-        <button className="hidden md:block px-md py-sm font-label-md text-label-md text-on-surface-variant hover:bg-primary/5 transition-colors rounded-lg">Log In</button>
-        <button className="bg-primary text-on-primary px-md py-sm rounded-lg font-label-md text-label-md scale-95 active:scale-90 transition-transform">Get Started</button>
-      </div>
-    </div>
-  </nav>
+  <style
+          dangerouslySetInnerHTML={{
+            __html: `
+        body { background-color: #FFF8DE; }
+        .warm-tech-card {
+            background-color: rgba(183, 189, 247, 0.15);
+            box-shadow: 0px 10px 30px rgba(87, 106, 143, 0.08);
+            backdrop-filter: blur(8px);
+        }
+        .ai-highlight {
+            border: 1px solid transparent;
+            background: linear-gradient(#f9f9ff, #f9f9ff) padding-box,
+                        linear-gradient(to right, #576A8F, #B7BDF7) border-box;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .accent-button {
+            background-color: #FF7444;
+            box-shadow: 0 4px 0px #D65A31;
+            transition: all 0.1s ease;
+        }
+        .accent-button:active {
+            box-shadow: 0 0px 0px #D65A31;
+            transform: translateY(4px);
+        }
+    `,
+          }}
+        />
   {/* Hero / Search Section */}
   <header className="pt-32 pb-xl px-margin">
     <div className="max-w-max_width mx-auto text-center">

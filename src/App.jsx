@@ -12,13 +12,16 @@ import Setting from './components/Setting'
 import Support from './components/Support'
 import Methodology from './components/Methodology'
 import Features from './components/Features'
-import Login from './components/Login'
+import SignIn from './components/SignIn'
+import Resources from './components/Resources'
+import TopNavBar from './components/home/TopNavBar'
 
 
 
 function App() {
   return (
     <BrowserRouter>
+    <TopNavBar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
@@ -33,7 +36,8 @@ function App() {
         <Route path="/support" element={<Support />} />
         <Route path="/methodology" element={<Methodology />} />
         <Route path="/features" element={<Features />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/signIn" element={<SignIn />} />
+        <Route path="/resources" element={<Resources/>}/>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

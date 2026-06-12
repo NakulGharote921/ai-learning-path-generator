@@ -1,5 +1,4 @@
 import React from 'react'
-import TopNavBar from './home/TopNavBar'
 import FeaturesStyles from './features/FeaturesStyles'
 import FeaturesHero from './features/FeaturesHero'
 import FeatureGrid from './features/FeatureGrid'
@@ -22,7 +21,6 @@ function Features() {
         <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Hanken+Grotesk:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet" />
         <FeaturesStyles />
       </div>
-      <TopNavBar />
       <main className="pt-[128px] pb-xl px-margin max-w-max_width mx-auto">
         <FeaturesHero />
         <FeatureGrid />

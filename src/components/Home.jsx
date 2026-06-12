@@ -18,7 +18,7 @@ function Home() {
     )
 
     document.querySelectorAll('.fade-in-up').forEach((element) => observer.observe(element))
-    return () => observer.disconnect()
+    // return () => observer.disconnect()
   }, [])
 
   return (
