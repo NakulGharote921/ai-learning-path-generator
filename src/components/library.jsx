@@ -38,7 +38,7 @@ function Laibray() {
       <Sidebar />
 
       <main className="main-content md:ml-64 p-margin pt-24 md:pt-margin pb-32 md:pb-margin min-h-screen">
-        <div className="max-w-[1200px] mx-auto">
+        <div className="max-w-300 mx-auto">
           <LibraryHeader />
           <LibraryFilters />
           <ResourceGrid />

@@ -1,5 +1,9 @@
+import FadeInSection from "../home/FadeInSection"
+
 function FeaturesFooter() {
   return (
+    <FadeInSection>
+
     <footer className="w-full py-xl bg-surface border-t border-outline-variant/30">
       <div className="max-w-max_width mx-auto px-margin flex flex-col md:flex-row justify-between items-center gap-md">
         <div className="flex flex-col items-center md:items-start gap-xs">
@@ -34,6 +38,7 @@ function FeaturesFooter() {
         </div>
       </div>
     </footer>
+    </FadeInSection>
   )
 }
 

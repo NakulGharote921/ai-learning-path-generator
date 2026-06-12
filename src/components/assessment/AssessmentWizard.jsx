@@ -37,8 +37,11 @@ function AssessmentWizard() {
       setActiveStep((step) => step + 1)
       return
     }
-
-    navigate('/dashboard')
+    if(false){
+      navigate('/dashboard')
+    }else{
+      navigate('/signup')
+    }
   }
 
   const handleBack = () => {

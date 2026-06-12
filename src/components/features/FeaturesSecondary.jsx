@@ -1,6 +1,8 @@
+import FadeInSection from "../home/FadeInSection"
+
 function FeaturesSecondary() {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 gap-xl py-xl border-t border-outline-variant/20">
+    <FadeInSection className="grid grid-cols-1 md:grid-cols-3 gap-xl py-xl border-t border-outline-variant/20">
       <div className="space-y-sm">
         <span className="material-symbols-outlined text-accent" data-icon="speed">
           speed
@@ -28,7 +30,7 @@ function FeaturesSecondary() {
           Your progress is tied to your identity, not your device. Pick up exactly where you left off, whether on desktop, tablet, or mobile.
         </p>
       </div>
-    </section>
+    </FadeInSection>
   )
 }
 

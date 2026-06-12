@@ -1,6 +1,8 @@
+import FadeInSection from "../home/FadeInSection"
+
 function FeaturesHero() {
   return (
-    <header className="mb-xl text-center max-w-3xl mx-auto">
+    <FadeInSection className="mb-xl text-center max-w-3xl mx-auto">
       <div className="inline-flex items-center gap-xs px-sm py-1 rounded-full bg-secondary-container/30 border border-secondary-container/50 mb-md">
         <span className="material-symbols-outlined text-[16px] text-primary" data-icon="auto_awesome">
           auto_awesome
@@ -13,7 +15,7 @@ function FeaturesHero() {
       <p className="font-body-lg text-body-lg text-on-surface-variant">
         Cognitive Flow combines the analytical rigor of AI with intuitive learning paths, designed to turn complex information into mastery.
       </p>
-    </header>
+    </FadeInSection>
   )
 }
 

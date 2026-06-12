@@ -1,6 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import FadeInSection from '../components/home/FadeInSection'
 
 function Methodology() {
+   useEffect(() => {
+         window.scrollTo({
+      top:0,
+      left:0,
+      behavior:'smooth'
+    })
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible')
+        })
+      },
+      { threshold: 0.15 }
+    )
+
+    document.querySelectorAll('.fade-in-up').forEach((element) => observer.observe(element))
+    return () => observer.disconnect()
+  }, [])
   return (
     <div>
       <div>
@@ -46,7 +65,7 @@ function Methodology() {
         />
         <main className="pt-32 pb-xl">
           {/* Hero Section */}
-          <section className="max-w-max_width mx-auto px-margin mb-xl text-center">
+          <FadeInSection className="max-w-max_width mx-auto px-margin mb-xl text-center">
             <span className="inline-block font-label-sm text-label-sm px-md py-xs rounded-full bg-secondary-container text-on-secondary-container mb-md">
               HOW IT WORKS
             </span>
@@ -56,9 +75,9 @@ function Methodology() {
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
               We’ve reverse-engineered the way the brain encodes deep knowledge to create a system that evolves with your intellectual growth.
             </p>
-          </section>
+          </FadeInSection>
           {/* Bento Grid: The Engine */}
-          <section className="max-w-max_width mx-auto px-margin mb-32">
+          <FadeInSection className="max-w-max_width mx-auto px-margin mb-32">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
               {/* Large Card: Absorption Engine */}
               <div className="md:col-span-8 warm-tech-card rounded-xl p-xl flex flex-col justify-between relative overflow-hidden group">
@@ -110,9 +129,9 @@ function Methodology() {
                 </div>
               </div>
             </div>
-          </section>
+          </FadeInSection>
           {/* Step-by-Step Methodology */}
-          <section className="bg-surface-container-low py-32 border-y border-outline-variant/10">
+          <FadeInSection className="bg-surface-container-low py-32 border-y border-outline-variant/10">
             <div className="max-w-max_width mx-auto px-margin">
               <div className="text-center mb-xl">
                 <h2 className="font-headline-lg text-headline-lg text-primary">The 4-Stage Mastery Loop</h2>
@@ -153,9 +172,9 @@ function Methodology() {
                 </div>
               </div>
             </div>
-          </section>
+          </FadeInSection>
           {/* Deep Learning Mode Section (AI Highlight) */}
-          <section className="max-w-max_width mx-auto px-margin mt-32">
+          <FadeInSection className="max-w-max_width mx-auto px-margin mt-32">
             <div className="ai-highlight rounded-xl p-xl md:p-32 flex flex-col md:flex-row items-center gap-xl">
               <div className="md:w-1/2">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-md">
@@ -190,9 +209,9 @@ function Methodology() {
                 <div className="absolute inset-0 bg-primary/20 mix-blend-overlay" />
               </div>
             </div>
-          </section>
+          </FadeInSection>
           {/* CTA Section */}
-          <section className="max-w-4xl mx-auto px-margin mt-32 text-center bg-white rounded-2xl p-xl shadow-xl border border-outline-variant/10">
+          <FadeInSection className="max-w-4xl mx-auto px-margin mt-32 text-center bg-white rounded-2xl p-xl shadow-xl border border-outline-variant/10">
             <h2 className="font-headline-lg text-headline-lg text-primary mb-md">Ready to upgrade your intellect?</h2>
             <p className="font-body-md text-body-md text-on-surface-variant mb-xl">
               Join 50,000+ lifelong learners leveraging Cognitive Flow to master the future.
@@ -201,9 +220,11 @@ function Methodology() {
               <button className="accent-button text-white font-label-md text-label-md px-xl py-md rounded-lg">Get Started Free</button>
               <button className="font-label-md text-label-md text-primary border border-primary/20 px-xl py-md rounded-lg hover:bg-primary/5 transition-colors">Book a Demo</button>
             </div>
-          </section>
+          </FadeInSection>
         </main>
         {/* Footer */}
+        <FadeInSection>
+
         <footer className="w-full py-xl bg-surface dark:bg-inverse-surface border-t border-outline-variant/30 mt-32">
           <div className="max-w-max_width mx-auto px-margin flex flex-col md:flex-row justify-between items-center gap-md">
             <div className="flex flex-col gap-xs items-center md:items-start">
@@ -226,6 +247,7 @@ function Methodology() {
             </div>
           </div>
         </footer>
+        </FadeInSection>
       </div>
     </div>
   )

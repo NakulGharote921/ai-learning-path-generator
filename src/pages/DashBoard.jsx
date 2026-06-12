@@ -1,12 +1,12 @@
 import React from 'react'
-import Sidebar from './dashboard/Sidebar'
-import MobileTopNav from './dashboard/MobileTopNav'
-import MobileBottomNav from './dashboard/MobileBottomNav'
-import WelcomeSection from './dashboard/WelcomeSection'
-import KPICards from './dashboard/KPICards'
-import RoadmapSection from './dashboard/RoadmapSection'
-import AchievementsSection from './dashboard/AchievementsSection'
-import AIRecommendations from './dashboard/AIRecommendations'
+import Sidebar from '../components/dashboard/Sidebar'
+import MobileTopNav from '../components/dashboard/MobileTopNav'
+import MobileBottomNav from '../components/dashboard/MobileBottomNav'
+import WelcomeSection from '../components/dashboard/WelcomeSection'
+import KPICards from '../components/dashboard/KPICards'
+import RoadmapSection from '../components/dashboard/RoadmapSection'
+import AchievementsSection from '../components/dashboard/AchievementsSection'
+import AIRecommendations from '../components/dashboard/AIRecommendations'
 import { Link } from 'react-router-dom'
 
 function DashBoard() {
@@ -93,7 +93,7 @@ function DashBoard() {
 
       {/* Main Content Area */}
       <main className="main-content md:ml-64 p-margin pt-24 md:pt-margin pb-32 md:pb-margin min-h-screen">
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+        <div className="max-w-300 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
           {/* Left Column (Content) */}
           <div className="lg:col-span-8 flex flex-col gap-margin">
             {/* Welcome Section & Streak */}
@@ -117,7 +117,7 @@ function DashBoard() {
             {/* Projects Shortcut */}
             <Link
               to="/projects"
-              className="bg-white rounded-[24px] p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
+              className="bg-white rounded-3xl p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
             >
               <div className="flex items-center justify-between gap-4">
                 <div>
@@ -140,7 +140,7 @@ function DashBoard() {
             {/* Analytics Shortcut */}
             <Link
               to="/analytics"
-              className="bg-white rounded-[24px] p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
+              className="bg-white rounded-3xl p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
             >
               <div className="flex items-center justify-between gap-4">
                 <div>
@@ -162,7 +162,7 @@ function DashBoard() {
 
             <Link
               to="/support"
-              className="bg-white rounded-[24px] p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
+              className="bg-white rounded-3xl p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
             >
               <div className="flex items-center justify-between gap-4">
                 <div>
@@ -185,7 +185,7 @@ function DashBoard() {
             {/* Profile Shortcut */}
             <Link
               to="/profile"
-              className="bg-white rounded-[24px] p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
+              className="bg-white rounded-3xl p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
             >
               <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-4">

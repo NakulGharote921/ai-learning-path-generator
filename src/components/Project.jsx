@@ -33,7 +33,7 @@ function Project() {
       <MobileTopNav />
       <Sidebar />
 
-      <main className="main-content md:ml-64 overflow-y-auto w-full h-full p-margin md:p-xl max-w-[1440px] mx-auto">
+      <main className="main-content md:ml-64 overflow-y-auto w-full h-full p-margin md:p-xl max-w-360 mx-auto">
         <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-xl gap-md">
           <div>
             <h2 className="font-headline-xl text-headline-xl text-on-surface mb-xs">

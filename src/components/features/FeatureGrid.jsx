@@ -1,7 +1,9 @@
+import FadeInSection from "../home/FadeInSection"
+
 function FeatureGrid() {
   return (
-    <div className="bento-grid mb-xl">
-      <div className="col-span-12 lg:col-span-8 group feature-hover bg-surface-container-low p-lg rounded-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[400px]">
+    <section className="bento-grid mb-xl">
+      <FadeInSection className="col-span-12 lg:col-span-8 group feature-hover bg-surface-container-low p-lg rounded-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-100">
         <div className="relative z-10">
           <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-md text-primary">
             <span className="material-symbols-outlined text-[32px]" data-icon="map">
@@ -32,10 +34,10 @@ function FeatureGrid() {
             </div>
           </div>
         </div>
-        <div className="absolute inset-0 border-2 border-transparent bg-gradient-to-br from-primary/10 to-secondary-container/10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
-      </div>
+        <div className="absolute inset-0 border-2 border-transparent bg-linear-to-br from-primary/10 to-secondary-container/10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
+      </FadeInSection>
 
-      <div className="col-span-12 lg:col-span-4 feature-hover bg-primary-container text-on-primary-container p-lg rounded-xl flex flex-col justify-between min-h-[400px]">
+      <FadeInSection className="col-span-12 lg:col-span-4 feature-hover bg-primary-container text-on-primary-container p-lg rounded-xl flex flex-col justify-between min-h-100">
         <div>
           <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center mb-md text-white">
             <span className="material-symbols-outlined text-[32px]" data-icon="smart_toy">
@@ -49,13 +51,13 @@ function FeatureGrid() {
         </div>
         <div className="bg-on-primary-fixed/20 p-md rounded-lg mt-lg border border-white/10">
           <div className="flex items-start gap-sm mb-sm">
-            <div className="w-6 h-6 rounded-full bg-white/30 flex-shrink-0" />
+            <div className="w-6 h-6 rounded-full bg-white/30 shrink-0" />
             <div className="text-white/80 font-label-sm text-label-sm italic">
               "Can you explain recursion using a nested box analogy?"
             </div>
           </div>
           <div className="flex items-start gap-sm">
-            <div className="w-6 h-6 rounded-full bg-accent flex-shrink-0 flex items-center justify-center">
+            <div className="w-6 h-6 rounded-full bg-accent shrink-0 flex items-center justify-center">
               <span className="material-symbols-outlined text-[14px] text-white" data-icon="bolt">
                 bolt
               </span>
@@ -65,9 +67,9 @@ function FeatureGrid() {
             </div>
           </div>
         </div>
-      </div>
+      </FadeInSection>
 
-      <div className="col-span-12 md:col-span-6 lg:col-span-5 feature-hover bg-surface-container-highest p-lg rounded-xl flex flex-col justify-between min-h-[360px]">
+      <FadeInSection className="col-span-12 md:col-span-6 lg:col-span-5 feature-hover bg-surface-container-highest p-lg rounded-xl flex flex-col justify-between min-h-90">
         <div>
           <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-md text-primary">
             <span className="material-symbols-outlined text-[32px]" data-icon="monitoring">
@@ -95,9 +97,9 @@ function FeatureGrid() {
             <span>Sun</span>
           </div>
         </div>
-      </div>
+      </FadeInSection>
 
-      <div className="col-span-12 md:col-span-6 lg:col-span-7 feature-hover bg-secondary-container/20 p-lg rounded-xl flex flex-col md:flex-row gap-lg min-h-[360px]">
+      <div className="col-span-12 md:col-span-6 lg:col-span-7 feature-hover bg-secondary-container/20 p-lg rounded-xl flex flex-col md:flex-row gap-lg min-h-90">
         <div className="flex-1">
           <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-md text-primary">
             <span className="material-symbols-outlined text-[32px]" data-icon="book_5">
@@ -132,7 +134,7 @@ function FeatureGrid() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

@@ -1,5 +1,5 @@
-import SignInHero from './SignIn/SignInHero'
-import SignInForm from './SignIn/SignInForm'
+import SignInHero from '../components/SignIn/SignInHero'
+import SignInForm from '../components/SignIn/SignInForm'
 
 function SignIn() {
   return (
