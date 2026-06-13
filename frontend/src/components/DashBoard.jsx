@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from './dashboard/Sidebar'
 import MobileTopNav from './dashboard/MobileTopNav'
 import MobileBottomNav from './dashboard/MobileBottomNav'
@@ -8,8 +8,102 @@ import RoadmapSection from './dashboard/RoadmapSection'
 import AchievementsSection from './dashboard/AchievementsSection'
 import AIRecommendations from './dashboard/AIRecommendations'
 import { Link } from 'react-router-dom'
+import DashboardSkeleton from './DashboardSkeleton'
+import EmptyState from './EmptyState'
+import { getDashboard } from '../services/api'
+import config from '../lib/config'
+import { onAuthStateChanged } from 'firebase/auth'
+import { firebaseAuth } from '../lib/firebase'
 
 function DashBoard() {
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const [dashboard, setDashboard] = useState(null)
+
+  useEffect(() => {
+    let mounted = true
+
+    async function loadDashboard() {
+      setLoading(true)
+      setError(null)
+      try {
+        const data = await getDashboard()
+        if (!mounted) return
+        setDashboard(data)
+      } catch (err) {
+        if (!mounted) return
+        setError(err?.message || 'Unable to load dashboard data.')
+      } finally {
+        if (!mounted) return
+        setLoading(false)
+      }
+    }
+
+    // Wait for Firebase auth to fully resolve before fetching dashboard.
+    if (!firebaseAuth) {
+      setLoading(false)
+      setError('Firebase is not configured')
+      return () => {}
+    }
+
+    let didLoad = false
+
+    const unsub = onAuthStateChanged(firebaseAuth, async (user) => {
+      // Ignore sign-out events.
+      if (!user) return
+
+      const uid = user?.uid
+      console.log('Authenticated UID:', uid)
+
+      if (!uid || !uid.trim()) {
+        setError('User not authenticated')
+        setLoading(false)
+        return
+      }
+
+      // Prevent duplicate dashboard loads during rapid auth state changes.
+      if (didLoad) return
+      didLoad = true
+
+      await loadDashboard()
+    })
+
+    return () => {
+      mounted = false
+      unsub?.()
+    }
+  }, [])
+
+
+  if (loading) {
+    return (
+      <main className="main-content md:ml-64 p-margin pt-24 md:pt-margin pb-32 md:pb-margin min-h-screen">
+        <div className="max-w-[1200px] mx-auto">
+          <DashboardSkeleton />
+        </div>
+      </main>
+    )
+  }
+
+  if (error) {
+    return (
+      <main className="main-content md:ml-64 p-margin pt-24 md:pt-margin pb-32 md:pb-margin min-h-screen">
+        <div className="max-w-[800px] mx-auto">
+          <EmptyState title="Unable to load dashboard data." description={error} ctaLabel="Retry" onCta={() => window.location.reload()} />
+        </div>
+      </main>
+    )
+  }
+
+  const userName = dashboard?.user_name || 'User'
+  const trackName = dashboard?.learning_paths?.[0]?.title || ''
+
+  const skillScore = dashboard?.skill_score ?? 0
+  const weeklyCompleted = dashboard?.weekly_goals_completed ?? 0
+  const weeklyTotal = dashboard?.weekly_goals_total ?? 0
+
+  const learningProgress = dashboard?.learning_progress ?? 0
+
   return (
     <div>
       <meta charSet="utf-8" />
@@ -97,13 +191,19 @@ function DashBoard() {
           {/* Left Column (Content) */}
           <div className="lg:col-span-8 flex flex-col gap-margin">
             {/* Welcome Section & Streak */}
-            <WelcomeSection userName="Alex" trackName="Data Science" />
+            <WelcomeSection
+              userName={userName}
+              trackName={trackName}
+              streakDays={dashboard?.streak_days ?? 0}
+              showFirstPathMessage={!dashboard?.learning_paths?.length}
+            />
+
 
             {/* KPI Cards (Bento style) */}
-            <KPICards />
+            <KPICards skillScore={skillScore} weeklyCompleted={weeklyCompleted} weeklyTotal={weeklyTotal} learningProgress={learningProgress} trackName={trackName} />
 
             {/* Centerpiece: Roadmap */}
-            <RoadmapSection />
+            <RoadmapSection learningPaths={dashboard?.learning_paths ?? []} />
 
             {/* Achievement Badges */}
             <AchievementsSection />
@@ -112,7 +212,7 @@ function DashBoard() {
           {/* Right Column (Widgets) */}
           <div className="lg:col-span-4 flex flex-col gap-margin">
             {/* AI Recommendations */}
-            <AIRecommendations />
+            <AIRecommendations recommendations={dashboard?.recommendations ?? []} />
 
             {/* Projects Shortcut */}
             <Link
@@ -192,7 +292,7 @@ function DashBoard() {
                   <img
                     alt="User Profile"
                     className="w-14 h-14 rounded-full object-cover border-2 border-primary/10"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh57RuBb78KL0EltHBGn80cFN-buHxOy9wFbP8yQ0Rz6dlGOWMSeHYh-Ircdq5FWuNtZn8o0GmQy5iTCtznij1qY23PtPVLTvQfwqidqDkUhpiftoq77CNAtzX77RMgFGrIBG_e1ufPaf7CHLIpw6J5zDjXfm-vYDQZhI9BLrPNcibpUlTIGCmNrPXqrIVTGmV1emCaQTo9UcjR4M__F3t7ahN2zmV1opyza-GplM73MFJYXeGg33zcn95-Q6xEnZRM49edjvMPM8"
+                    src={config.IMAGE_BASE_URL ? `${config.IMAGE_BASE_URL}/avatar.jpg` : '/src/assets/default-avatar.png'}
                   />
                   <div>
                     <p className="font-label-sm text-label-sm text-outline uppercase tracking-wider">

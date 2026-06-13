@@ -8,13 +8,14 @@ settings = get_settings()
 engine = None
 AsyncSessionLocal = None
 
-if settings.database_url:
-    engine = create_async_engine(settings.database_url, pool_pre_ping=True, future=True)
+database_url = settings.database_url_or_default
+if database_url:
+    engine = create_async_engine(database_url, pool_pre_ping=True, future=True)
     AsyncSessionLocal = async_sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
 
 
 async def get_db() -> AsyncGenerator[AsyncSession, None]:
     if AsyncSessionLocal is None:
-        raise RuntimeError("DATABASE_URL is not configured; database-backed endpoints are unavailable.")
+        raise RuntimeError("Database session is not configured.")
     async with AsyncSessionLocal() as session:
         yield session

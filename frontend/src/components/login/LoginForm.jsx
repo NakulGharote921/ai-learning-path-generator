@@ -1,18 +1,44 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { signInWithGoogle } from '../../lib/firebase'
+import { finishGoogleSignInRedirect, signInWithGoogle } from '../../lib/firebase'
 
 function LoginForm() {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
+  useEffect(() => {
+    let isMounted = true
+
+    finishGoogleSignInRedirect()
+      .then((result) => {
+        if (!isMounted || !result?.user) {
+          return
+        }
+
+        navigate('/dashboard', { replace: true })
+      })
+      .catch((authError) => {
+        if (!isMounted) {
+          return
+        }
+
+        setError(authError?.message || 'Google sign-in could not be completed.')
+      })
+
+    return () => {
+      isMounted = false
+    }
+  }, [navigate])
+
   const handleGoogleSignIn = async () => {
     setError('')
     setLoading(true)
     try {
-      await signInWithGoogle()
-      navigate('/dashboard')
+      const result = await signInWithGoogle()
+      if (result?.user) {
+        navigate('/dashboard', { replace: true })
+      }
     } catch (authError) {
       setError(authError?.message || 'Google sign-in failed. Please try again.')
     } finally {

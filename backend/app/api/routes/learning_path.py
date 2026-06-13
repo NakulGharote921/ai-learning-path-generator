@@ -54,8 +54,14 @@ async def generate_learning_path(
 
 
 @router.get("/{id}", response_model=LearningPathRead)
-async def get_learning_path(id: str, db: AsyncSession = Depends(get_session)):
+async def get_my_learning_path(
+    id: str,
+    db: AsyncSession = Depends(get_session),
+    current_user: AuthenticatedUser = Depends(get_current_user),
+):
+    # User-scoped fetch to prevent cross-user data leakage
     path = await LearningPathRepository(db).get_with_modules(id)
-    if not path:
+    if not path or path.user_id != current_user.user_id:
         raise HTTPException(status_code=404, detail="Learning path not found")
     return path
+

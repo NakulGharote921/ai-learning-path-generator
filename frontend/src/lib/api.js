@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
+import { API_BASE_URL } from './config'
 
 async function request(path, options = {}) {
   const response = await fetch(`${API_BASE_URL}${path}`, {
@@ -19,4 +19,15 @@ async function request(path, options = {}) {
 
 export function getHealth() {
   return request('/api/v1/system/health')
+}
+
+export function getRecommendedResources({ skillLevel, goal, moduleTitle } = {}) {
+  const params = new URLSearchParams()
+
+  if (skillLevel) params.set('skill_level', skillLevel)
+  if (goal) params.set('goal', goal)
+  if (moduleTitle) params.set('module_title', moduleTitle)
+
+  const query = params.toString()
+  return request(`/api/v1/resources/recommend${query ? `?${query}` : ''}`)
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import config from '../../lib/config'
 
 function ProfileHeader() {
   return (
@@ -8,8 +9,8 @@ function ProfileHeader() {
           <img
             alt="User Profile"
             className="w-24 h-24 rounded-full object-cover border-4 border-surface shadow-sm"
-            data-alt="A high-quality, professional headshot of a young male professional named Alex. He has short dark hair, a subtle smile, and is wearing a crisp, modern navy blue shirt. The background is a clean, slightly warm off-white, perfectly complementing the Warm Cream platform aesthetic. The lighting is soft and studio-quality, conveying competence and approachability in a modern tech context."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh57RuBb78KL0EltHBGn80cFN-buHxOy9wFbP8yQ0Rz6dlGOWMSeHYh-Ircdq5FWuNtZn8o0GmQy5iTCtznij1qY23PtPVLTvQfwqidqDkUhpiftoq77CNAtzX77RMgFGrIBG_e1ufPaf7CHLIpw6J5zDjXfm-vYDQZhI9BLrPNcibpUlTIGCmNrPXqrIVTGmV1emCaQTo9UcjR4M__F3t7ahN2zmV1opyza-GplM73MFJYXeGg33zcn95-Q6xEnZRM49edjvMPM8"
+            data-alt="User avatar"
+            src={config.IMAGE_BASE_URL ? `${config.IMAGE_BASE_URL}/avatar/alex.jpg` : config.DEFAULT_AVATAR}
           />
           <div className="absolute bottom-0 right-0 accent-bg text-on-primary font-label-sm text-label-sm px-2 py-1 rounded-full border-2 border-surface shadow-sm">
             Pro

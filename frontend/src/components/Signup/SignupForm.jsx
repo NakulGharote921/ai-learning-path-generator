@@ -24,14 +24,6 @@ function SignupForm() {
               Continue with Google
             </span>
           </button>
-          <button className="flex items-center justify-center gap-sm w-full py-sm px-md rounded-xl border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-200">
-            <span className="material-symbols-outlined" style={{ fontVariationSettings: '"FILL" 1' }}>
-              code
-            </span>
-            <span className="font-label-md text-label-md text-on-surface">
-              Continue with GitHub
-            </span>
-          </button>
         </div>
 
         <div className="flex items-center gap-sm mb-lg">

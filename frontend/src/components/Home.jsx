@@ -5,7 +5,6 @@ import StatsSection from './home/StatsSection'
 import FeaturesSection from './home/FeaturesSection'
 import CallToActionSection from './home/CallToActionSection'
 import SiteFooter from './home/SiteFooter'
-import BackendStatus from './BackendStatus'
 
 function Home() {
   useEffect(() => {
@@ -28,7 +27,6 @@ function Home() {
 
       <TopNavBar />
       <HeroSection />
-      <BackendStatus />
       <StatsSection />
       <FeaturesSection />
       <CallToActionSection />

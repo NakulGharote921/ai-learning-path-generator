@@ -24,7 +24,12 @@ async def update_progress(
     return progress
 
 
-@router.get("/{user_id}", response_model=ProgressRead)
-async def get_progress(user_id: str, db: AsyncSession = Depends(get_session)):
+@router.get("/", response_model=ProgressRead)
+async def get_my_progress(
+    db: AsyncSession = Depends(get_session),
+    current_user: AuthenticatedUser = Depends(get_current_user),
+):
+    user_id = current_user.clerk_user_id
     progress = await ProgressRepository(db).get_latest_for_user(user_id)
     return progress
+

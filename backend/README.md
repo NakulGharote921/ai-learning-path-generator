@@ -4,20 +4,15 @@
 
 ```bash
 cd backend
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-## Firebase CLI
+## Environment
 
-Install the Firebase CLI globally if you need to manage Firebase hosting, auth, or other Firebase resources locally:
-
-```bash
-npm install -g firebase-tools
-```
-
-## Firebase config
-
-If you are wiring the frontend to Firebase, copy the values from `backend/.env.example` into `frontend/.env` using the `VITE_FIREBASE_*` names.
+Copy `backend/.env.example` to `backend/.env` and fill in the values you need for local development. This backend is set up to run without Supabase, Clerk, Chroma, or Docker.
 
 ## API
 

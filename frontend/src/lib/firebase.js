@@ -1,6 +1,12 @@
 import { initializeApp } from 'firebase/app'
 import { getAnalytics, isSupported } from 'firebase/analytics'
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
+import {
+  GoogleAuthProvider,
+  getAuth,
+  getRedirectResult,
+  signInWithPopup,
+  signInWithRedirect,
+} from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -49,5 +55,27 @@ export function signInWithGoogle() {
     )
   }
 
-  return signInWithPopup(firebaseAuth, googleProvider)
+  return signInWithPopup(firebaseAuth, googleProvider).catch(async (error) => {
+    const code = error?.code || ''
+    const shouldFallbackToRedirect =
+      code === 'auth/popup-blocked' ||
+      code === 'auth/popup-closed-by-user' ||
+      code === 'auth/unauthorized-domain' ||
+      code === 'auth/cancelled-popup-request'
+
+    if (!shouldFallbackToRedirect) {
+      throw error
+    }
+
+    await signInWithRedirect(firebaseAuth, googleProvider)
+    return null
+  })
+}
+
+export function finishGoogleSignInRedirect() {
+  if (!firebaseAuth) {
+    return Promise.resolve(null)
+  }
+
+  return getRedirectResult(firebaseAuth)
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ProjectCard({ icon, title, description, time, tags, level, accent = false }) {
+function ProjectCard({ icon, title, description, time, tags, level, accent = false, sourceUrl }) {
   return (
     <article className="bg-white rounded-2xl p-md shadow-soft hover:shadow-hover border border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col h-full group relative overflow-hidden">
       {accent ? (
@@ -39,9 +39,14 @@ function ProjectCard({ icon, title, description, time, tags, level, accent = fal
         ))}
       </div>
 
-      <button className="w-full bg-accent text-white font-label-md text-label-md py-sm rounded-lg shadow-btn active:translate-y-1 active:shadow-none transition-all mt-auto opacity-90 hover:opacity-100">
+      <a
+        className="w-full bg-accent text-white font-label-md text-label-md py-sm rounded-lg shadow-btn active:translate-y-1 active:shadow-none transition-all mt-auto opacity-90 hover:opacity-100 text-center"
+        href={sourceUrl || '#'}
+        target={sourceUrl ? '_blank' : undefined}
+        rel={sourceUrl ? 'noreferrer' : undefined}
+      >
         Start Project
-      </button>
+      </a>
     </article>
   )
 }

@@ -15,18 +15,12 @@ class Settings(BaseSettings):
     api_v1_prefix: str = "/api/v1"
     secret_key: str = Field(default="change-me")
     database_url: Optional[str] = None
-    supabase_url: str = ""
-    supabase_service_role_key: str = ""
-    supabase_jwt_audience: str = "authenticated"
-    clerk_jwks_url: str = ""
     nvidia_api_key: str = ""
     nvidia_base_url: str = "https://integrate.api.nvidia.com/v1"
     nvidia_model: str = "openai/gpt-oss-20b"
     nvidia_tutor_model: str = "openai/gpt-oss-20b"
     nvidia_quiz_model: str = "openai/gpt-oss-20b"
     nvidia_embedding_model: str = "nvidia/llama-3.2-nv-embedqa-1b-v2"
-    chroma_persist_directory: str = "./chroma"
-    chroma_collection: str = "learning_resources"
     cors_origins: str = "http://localhost:3000,http://localhost:5173"
     rate_limit: str = "120/minute"
 
