@@ -1,4 +1,5 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 const badges = [
   {
@@ -23,7 +24,7 @@ const badges = [
 
 function ProfileAchievements() {
   return (
-    <section className="mb-xl">
+    <FadeInSection className="mb-xl">
       <div className="flex items-center justify-between mb-md">
         <h3 className="font-headline-md text-headline-md slate-blue-text flex items-center gap-2">
           <span className="material-symbols-outlined text-primary">
@@ -69,7 +70,7 @@ function ProfileAchievements() {
           </p>
         </div>
       </div>
-    </section>
+    </FadeInSection>
   )
 }
 

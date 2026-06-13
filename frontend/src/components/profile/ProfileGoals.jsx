@@ -1,8 +1,9 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 function ProfileGoals() {
   return (
-    <section>
+    <FadeInSection>
       <h3 className="font-headline-md text-headline-md slate-blue-text flex items-center gap-2 mb-md">
         <span className="material-symbols-outlined text-primary">target</span>
         Learning Goals
@@ -57,7 +58,7 @@ function ProfileGoals() {
           </div>
         </div>
       </div>
-    </section>
+    </FadeInSection>
   )
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 const skillBars = [
   { label: 'Algorithms', height: '85%', delay: '0.1s', accent: 'bg-primary-container' },
@@ -10,7 +11,7 @@ const skillBars = [
 
 function SkillDistribution() {
   return (
-    <section className="glass-card rounded-xl p-lg">
+    <FadeInSection className="glass-card rounded-xl p-lg">
       <div className="flex justify-between items-start mb-lg">
         <div>
           <h3 className="font-headline-md text-headline-md text-primary">
@@ -37,7 +38,7 @@ function SkillDistribution() {
           </div>
         ))}
       </div>
-    </section>
+    </FadeInSection>
   )
 }
 

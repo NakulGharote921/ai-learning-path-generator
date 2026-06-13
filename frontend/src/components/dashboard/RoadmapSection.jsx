@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import FadeInSection from '../home/FadeInSection'
 
 function RoadmapSection() {
   return (
-    <section className="bg-white rounded-[24px] p-margin shadow-soft border border-primary/10">
+    <FadeInSection className="bg-white rounded-[24px] p-margin shadow-soft border border-primary/10">
       <div className="flex justify-between items-center mb-lg">
         <h2 className="font-headline-md text-headline-md text-deep-slate-blue">
           Your Roadmap At A Glance
@@ -85,7 +86,7 @@ function RoadmapSection() {
           </div>
         </div>
       </div>
-    </section>
+    </FadeInSection>
   )
 }
 

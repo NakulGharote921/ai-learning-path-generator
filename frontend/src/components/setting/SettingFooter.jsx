@@ -1,8 +1,9 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 function SettingFooter() {
   return (
-    <footer className="ml-64 w-[calc(100%-16rem)] py-xl bg-surface border-t border-outline-variant/30 mt-xl">
+    <FadeInSection className="ml-64 w-[calc(100%-16rem)] py-xl bg-surface border-t border-outline-variant/30 mt-xl">
       <div className="max-w-max_width mx-auto px-margin flex flex-col md:flex-row justify-between items-center gap-md">
         <div className="flex flex-col gap-xs">
           <span className="font-headline-md text-headline-md font-bold text-primary">
@@ -27,7 +28,7 @@ function SettingFooter() {
           </a>
         </div>
       </div>
-    </footer>
+    </FadeInSection>
   )
 }
 

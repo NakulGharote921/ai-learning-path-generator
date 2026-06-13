@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidebar from '../components/dashboard/Sidebar'
 import MobileTopNav from '../components/dashboard/MobileTopNav'
 import MobileBottomNav from '../components/dashboard/MobileBottomNav'
@@ -8,8 +8,28 @@ import RoadmapSection from '../components/dashboard/RoadmapSection'
 import AchievementsSection from '../components/dashboard/AchievementsSection'
 import AIRecommendations from '../components/dashboard/AIRecommendations'
 import { Link } from 'react-router-dom'
+import FadeInSection from '../components/home/FadeInSection'
 
 function DashBoard() {
+   useEffect(() => {
+       window.scrollTo({
+        top:0,
+        left:0,
+        behavior:'smooth'
+      })
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible')
+          })
+        },
+        { threshold: 0.15 }
+      )
+  
+      document.querySelectorAll('.fade-in-up').forEach((element) => observer.observe(element))
+     
+      return () => observer.disconnect()
+    }, [])
   return (
     <div>
       <meta charSet="utf-8" />
@@ -92,7 +112,7 @@ function DashBoard() {
       <Sidebar />
 
       {/* Main Content Area */}
-      <main className="main-content md:ml-64 p-margin pt-24 md:pt-margin pb-32 md:pb-margin min-h-screen">
+      <main in className="main-content md:ml-64 p-margin pt-24 md:pt-margin pb-32 md:pb-margin min-h-screen">
         <div className="max-w-300 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
           {/* Left Column (Content) */}
           <div className="lg:col-span-8 flex flex-col gap-margin">
@@ -119,7 +139,7 @@ function DashBoard() {
               to="/projects"
               className="bg-white rounded-3xl p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
             >
-              <div className="flex items-center justify-between gap-4">
+              <FadeInSection className="flex items-center justify-between gap-4">
                 <div>
                   <p className="font-label-sm text-label-sm text-outline uppercase tracking-wider">
                     Projects
@@ -134,7 +154,7 @@ function DashBoard() {
                 <span className="material-symbols-outlined text-primary text-3xl">
                   rocket_launch
                 </span>
-              </div>
+              </FadeInSection>
             </Link>
 
             {/* Analytics Shortcut */}
@@ -142,7 +162,7 @@ function DashBoard() {
               to="/analytics"
               className="bg-white rounded-3xl p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
             >
-              <div className="flex items-center justify-between gap-4">
+              <FadeInSection className="flex items-center justify-between gap-4">
                 <div>
                   <p className="font-label-sm text-label-sm text-outline uppercase tracking-wider">
                     Analytics
@@ -157,14 +177,14 @@ function DashBoard() {
                 <span className="material-symbols-outlined text-primary text-3xl">
                   monitoring
                 </span>
-              </div>
+              </FadeInSection>
             </Link>
 
             <Link
               to="/support"
               className="bg-white rounded-3xl p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
             >
-              <div className="flex items-center justify-between gap-4">
+              <FadeInSection className="flex items-center justify-between gap-4">
                 <div>
                   <p className="font-label-sm text-label-sm text-outline uppercase tracking-wider">
                     Support
@@ -179,7 +199,7 @@ function DashBoard() {
                 <span className="material-symbols-outlined text-primary text-3xl">
                   help
                 </span>
-              </div>
+              </FadeInSection>
             </Link>
 
             {/* Profile Shortcut */}
@@ -187,7 +207,7 @@ function DashBoard() {
               to="/profile"
               className="bg-white rounded-3xl p-margin shadow-soft border border-primary/10 hover:border-primary/25 transition-all duration-200 hover:-translate-y-0.5"
             >
-              <div className="flex items-center justify-between gap-4">
+              <FadeInSection className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
                   <img
                     alt="User Profile"
@@ -209,7 +229,7 @@ function DashBoard() {
                 <span className="material-symbols-outlined text-primary text-3xl">
                   person
                 </span>
-              </div>
+              </FadeInSection>
             </Link>
           </div>
         </div>

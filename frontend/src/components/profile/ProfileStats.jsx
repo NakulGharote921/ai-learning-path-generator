@@ -1,4 +1,5 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 const stats = [
   { icon: 'schedule', value: '142', label: 'Learning Hours' },
@@ -8,7 +9,7 @@ const stats = [
 
 function ProfileStats() {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-xl">
+    <FadeInSection className="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-xl">
       {stats.map(({ icon, value, label, accent }) => (
         <div
           key={label}
@@ -34,7 +35,7 @@ function ProfileStats() {
           </p>
         </div>
       ))}
-    </section>
+    </FadeInSection>
   )
 }
 

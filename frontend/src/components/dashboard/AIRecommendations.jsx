@@ -1,8 +1,9 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 function AIRecommendations() {
   return (
-    <div className="ai-gradient-border p-md shadow-soft">
+    <FadeInSection className="ai-gradient-border p-md shadow-soft">
       <div className="flex items-center gap-2 mb-md">
         <span className="material-symbols-outlined text-deep-slate-blue">
           smart_toy
@@ -83,7 +84,7 @@ function AIRecommendations() {
       <button className="w-full mt-md text-center text-deep-slate-blue font-label-md text-label-md hover:underline py-2">
         View All Suggestions
       </button>
-    </div>
+    </FadeInSection>
   )
 }
 

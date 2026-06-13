@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import FadeInSection from '../home/FadeInSection'
 
 const navItems = [
   { to: '/dashboard',   icon: 'bar_chart_4_bars',        label: 'Dashboard' },
@@ -12,8 +13,27 @@ const navItems = [
 ]
 
 function Sidebar() {
+   useEffect(() => {
+       window.scrollTo({
+        top:0,
+        left:0,
+        behavior:'smooth'
+      })
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible')
+          })
+        },
+        { threshold: 0.15 }
+      )
+  
+      document.querySelectorAll('.fade-in-up').forEach((element) => observer.observe(element))
+     
+      return () => observer.disconnect()
+    }, [])
   return (
-    <aside className="side-nav hidden md:flex h-screen w-64 fixed left-0 top-0 z-40 bg-surface-container flex-col gap-base p-md shadow-md transition-transform duration-300">
+    <FadeInSection className="side-nav hidden md:flex h-screen w-64 fixed left-0 top-0 z-40 bg-surface-container flex-col gap-base p-md shadow-md transition-transform duration-300">
       {/* Brand / User Header */}
       <div className="mb-lg">
         <div className="flex items-center gap-sm mb-sm">
@@ -101,7 +121,7 @@ function Sidebar() {
           Logout
         </NavLink>
       </div>
-    </aside>
+    </FadeInSection>
   )
 }
 

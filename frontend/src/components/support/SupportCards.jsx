@@ -1,6 +1,8 @@
+import FadeInSection from "../home/FadeInSection"
+
 function SupportCards() {
   return (
-    <section className="px-margin py-lg max-w-max_width mx-auto">
+    <FadeInSection className="px-margin py-lg max-w-max_width mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter">
         <div className="md:col-span-2 glass-card rounded-xl p-lg hover:shadow-xl transition-all cursor-pointer group flex flex-col justify-between">
           <div>
@@ -51,7 +53,7 @@ function SupportCards() {
           <span className="material-symbols-outlined text-[64px] opacity-20 group-hover:opacity-40 transition-opacity">groups</span>
         </div>
       </div>
-    </section>
+    </FadeInSection>
   )
 }
 

@@ -1,6 +1,8 @@
+import FadeInSection from "../home/FadeInSection"
+
 function SupportHero() {
   return (
-    <section className="hero-pattern pt-xl pb-lg px-margin">
+    <FadeInSection className="hero-pattern pt-xl pb-lg px-margin">
       <div className="max-w-4xl mx-auto text-center space-y-md">
         <h2 className="font-headline-xl text-headline-xl text-primary">How can we help you today?</h2>
         <div className="relative max-w-2xl mx-auto group">
@@ -15,7 +17,7 @@ function SupportHero() {
           </button>
         </div>
       </div>
-    </section>
+    </FadeInSection>
   )
 }
 

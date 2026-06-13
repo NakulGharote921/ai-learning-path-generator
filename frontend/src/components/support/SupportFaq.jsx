@@ -1,3 +1,5 @@
+import FadeInSection from "../home/FadeInSection"
+
 const faqs = [
   {
     question: 'How do I reset my learning path?',
@@ -23,7 +25,7 @@ const faqs = [
 
 function SupportFaq() {
   return (
-    <section className="px-margin py-xl bg-surface-container-low">
+    <FadeInSection className="px-margin py-xl bg-surface-container-low">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-xl">
           <span className="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full font-label-sm text-label-sm uppercase tracking-wider">
@@ -48,7 +50,7 @@ function SupportFaq() {
           ))}
         </div>
       </div>
-    </section>
+    </FadeInSection>
   )
 }
 

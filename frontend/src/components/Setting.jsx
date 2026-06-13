@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidebar from './dashboard/Sidebar'
 import MobileTopNav from './dashboard/MobileTopNav'
 import MobileBottomNav from './dashboard/MobileBottomNav'
@@ -8,8 +8,28 @@ import SettingBillingCard from './setting/SettingBillingCard'
 import SettingNotificationsCard from './setting/SettingNotificationsCard'
 import SettingSecurityCard from './setting/SettingSecurityCard'
 import SettingFooter from './setting/SettingFooter'
+import FadeInSection from './home/FadeInSection'
 
 function Setting() {
+   useEffect(() => {
+       window.scrollTo({
+        top:0,
+        left:0,
+        behavior:'smooth'
+      })
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible')
+          })
+        },
+        { threshold: 0.15 }
+      )
+  
+      document.querySelectorAll('.fade-in-up').forEach((element) => observer.observe(element))
+     
+      return () => observer.disconnect()
+    }, [])
   return (
     <div>
       <meta charSet="utf-8" />
@@ -48,7 +68,7 @@ function Setting() {
       <Sidebar />
 
       <main className="main-content ml-0 md:ml-64 min-h-screen p-xl max-w-max_width">
-        <header className="mb-lg">
+        <FadeInSection className="mb-lg">
           <nav className="flex items-center gap-xs text-on-surface-variant mb-xs">
             <a className="font-label-sm text-label-sm hover:text-primary transition-colors" href="#">
               Home
@@ -59,7 +79,7 @@ function Setting() {
             <span className="font-label-sm text-label-sm font-bold text-slate-blue">Settings</span>
           </nav>
           <h2 className="font-headline-lg text-headline-lg text-slate-blue">Settings</h2>
-        </header>
+        </FadeInSection>
 
         <div className="grid grid-cols-12 gap-gutter">
           <section className="col-span-12 lg:col-span-8 flex flex-col gap-gutter">

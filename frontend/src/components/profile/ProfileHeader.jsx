@@ -1,8 +1,9 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 function ProfileHeader() {
   return (
-    <header className="flex flex-col md:flex-row items-start md:items-center justify-between mb-xl gap-md">
+    <FadeInSection className="flex flex-col md:flex-row items-start md:items-center justify-between mb-xl gap-md">
       <div className="flex items-center gap-md">
         <div className="relative">
           <img
@@ -28,7 +29,7 @@ function ProfileHeader() {
         <span className="material-symbols-outlined text-sm">edit</span>
         Edit Profile
       </button>
-    </header>
+    </FadeInSection>
   )
 }
 

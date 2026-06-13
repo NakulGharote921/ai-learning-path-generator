@@ -1,8 +1,9 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 function WelcomeSection({ userName = 'Alex', trackName = 'Data Science' }) {
   return (
-    <section className="flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+    <FadeInSection className="flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
       <div>
         <h2 className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-deep-slate-blue">
           Hello, {userName}!
@@ -33,7 +34,7 @@ function WelcomeSection({ userName = 'Alex', trackName = 'Data Science' }) {
           </div>
         </div>
       </div>
-    </section>
+    </FadeInSection>
   )
 }
 

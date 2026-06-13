@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidebar from './dashboard/Sidebar'
 import MobileTopNav from './dashboard/MobileTopNav'
 import MobileBottomNav from './dashboard/MobileBottomNav'
 import ProjectFilter from './project/ProjectFilter'
 import ProjectSection from './project/ProjectSection'
 import { beginnerProjects, intermediateProjects } from './project/projectData'
+import FadeInSection from './home/FadeInSection'
 
 function Project() {
+   useEffect(() => {
+       window.scrollTo({
+        top:0,
+        left:0,
+        behavior:'smooth'
+      })
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible')
+          })
+        },
+        { threshold: 0.15 }
+      )
+  
+      document.querySelectorAll('.fade-in-up').forEach((element) => observer.observe(element))
+     
+      return () => observer.disconnect()
+    }, [])
   return (
     <div>
       <style
@@ -34,7 +54,7 @@ function Project() {
       <Sidebar />
 
       <main className="main-content md:ml-64 overflow-y-auto w-full h-full p-margin md:p-xl max-w-360 mx-auto">
-        <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-xl gap-md">
+        <FadeInSection className="flex flex-col md:flex-row justify-between items-start md:items-center mb-xl gap-md">
           <div>
             <h2 className="font-headline-xl text-headline-xl text-on-surface mb-xs">
               Project Hub
@@ -45,7 +65,7 @@ function Project() {
           </div>
 
           <ProjectFilter />
-        </header>
+        </FadeInSection>
 
         <ProjectSection
           title="Beginner Foundations"

@@ -1,8 +1,9 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 function SettingNotificationsCard() {
   return (
-    <div className="settings-card rounded-2xl p-lg">
+    <FadeInSection className="settings-card rounded-2xl p-lg">
       <h3 className="font-headline-md text-headline-md text-slate-blue mb-md flex items-center gap-sm">
         <span className="material-symbols-outlined">notifications</span>{' '}
         Notifications
@@ -27,7 +28,7 @@ function SettingNotificationsCard() {
           </div>
         ))}
       </div>
-    </div>
+    </FadeInSection>
   )
 }
 

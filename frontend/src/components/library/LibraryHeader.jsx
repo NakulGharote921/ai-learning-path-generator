@@ -1,4 +1,5 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 /**
  * LibraryHeader
@@ -6,7 +7,7 @@ import React from 'react'
  */
 function LibraryHeader() {
   return (
-    <header className="flex flex-col md:flex-row md:items-center justify-between gap-md mb-lg">
+    <FadeInSection className="flex flex-col md:flex-row md:items-center justify-between gap-md mb-lg">
       <div>
         <h1 className="font-headline-xl text-headline-xl text-on-surface mb-xs">
           Library
@@ -31,7 +32,7 @@ function LibraryHeader() {
           <span className="font-label-sm text-label-sm text-on-surface-variant">K</span>
         </div>
       </div>
-    </header>  
+    </FadeInSection>  
   )
 }
 

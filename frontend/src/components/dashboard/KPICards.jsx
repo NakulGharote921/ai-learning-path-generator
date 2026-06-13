@@ -1,8 +1,9 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 function KPICards() {
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-3 gap-md">
+    <FadeInSection className="grid grid-cols-1 sm:grid-cols-3 gap-md">
       {/* Skill Score */}
       <div className="bg-white rounded-2xl p-md shadow-soft border border-primary/10 hover:shadow-hover transition-shadow duration-300 flex flex-col justify-between">
         <div className="flex items-center gap-2 mb-md text-deep-slate-blue">
@@ -83,7 +84,7 @@ function KPICards() {
           <div className="bg-accent-orange h-full rounded-full w-[45%] bg-[#FF7444]" />
         </div>
       </div>
-    </section>
+    </FadeInSection>
   )
 }
 

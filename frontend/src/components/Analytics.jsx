@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidebar from './dashboard/Sidebar'
 import MobileTopNav from './dashboard/MobileTopNav'
 import MobileBottomNav from './dashboard/MobileBottomNav'
@@ -6,8 +6,28 @@ import AnalyticsMetricCard from './analytics/AnalyticsMetricCard'
 import FocusHoursChart from './analytics/FocusHoursChart'
 import AnalyticsRadials from './analytics/AnalyticsRadials'
 import SkillDistribution from './analytics/SkillDistribution'
+import FadeInSection from './home/FadeInSection'
 
 function Analytics() {
+   useEffect(() => {
+       window.scrollTo({
+        top:0,
+        left:0,
+        behavior:'smooth'
+      })
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible')
+          })
+        },
+        { threshold: 0.15 }
+      )
+  
+      document.querySelectorAll('.fade-in-up').forEach((element) => observer.observe(element))
+     
+      return () => observer.disconnect()
+    }, [])
   return (
     <div>
       <style
@@ -63,7 +83,7 @@ function Analytics() {
 
       <main className="main-content md:ml-64 p-margin pt-24 md:pt-margin pb-32 md:pb-margin min-h-screen">
         <div className="max-w-max_width mx-auto p-margin md:p-xl space-y-xl">
-          <header className="flex flex-col md:flex-row md:items-end justify-between gap-sm border-b border-outline-variant/30 pb-sm">
+          <FadeInSection className="flex flex-col md:flex-row md:items-end justify-between gap-sm border-b border-outline-variant/30 pb-sm">
             <div>
               <h2 className="font-headline-xl text-headline-xl text-primary font-bold">
                 Performance Analytics
@@ -79,9 +99,9 @@ function Analytics() {
                 <option>This Year</option>
               </select>
             </div>
-          </header>
+          </FadeInSection>
 
-          <section className="grid grid-cols-1 md:grid-cols-3 gap-md md:gap-lg">
+          <FadeInSection className="grid grid-cols-1 md:grid-cols-3 gap-md md:gap-lg">
             <AnalyticsMetricCard
               title="Learning Streak"
               value="14"
@@ -105,12 +125,12 @@ function Analytics() {
               iconBg="bg-secondary-container/30"
               iconText="text-secondary"
             />
-          </section>
+          </FadeInSection>
 
-          <section className="grid grid-cols-1 lg:grid-cols-3 gap-md md:gap-lg">
+          <FadeInSection className="grid grid-cols-1 lg:grid-cols-3 gap-md md:gap-lg">
             <FocusHoursChart />
             <AnalyticsRadials />
-          </section>
+          </FadeInSection>
 
           <SkillDistribution />
         </div>

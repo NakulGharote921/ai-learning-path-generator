@@ -1,8 +1,9 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 function SettingPreferencesCard() {
   return (
-    <div className="settings-card rounded-2xl p-lg">
+    <FadeInSection className="settings-card rounded-2xl p-lg">
       <h3 className="font-headline-md text-headline-md text-slate-blue mb-md flex items-center gap-sm">
         <span className="material-symbols-outlined">tune</span> Preferences
       </h3>
@@ -48,7 +49,7 @@ function SettingPreferencesCard() {
           </select>
         </div>
       </div>
-    </div>
+    </FadeInSection>
   )
 }
 

@@ -28,10 +28,10 @@ function App() {
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/assessment" element={<Assessment />} />
         <Route path="/dashboard" element={<DashBoard />} />
-        <Route path="/analytics" element={<Analytics />} />
         <Route path="/roadmap" element={<Roadmap />} />
-        <Route path="/projects" element={<Project />} />
         <Route path="/library" element={<Laibray />} />
+        <Route path="/analytics" element={<Analytics />} />
+        <Route path="/projects" element={<Project />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Setting />} />
         <Route path="/support" element={<Support />} />

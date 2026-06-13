@@ -1,8 +1,9 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 function SettingBillingCard() {
   return (
-    <div className="settings-card rounded-2xl p-lg bg-gradient-to-br from-white to-periwinkle-accent/20">
+    <FadeInSection className="settings-card rounded-2xl p-lg bg-gradient-to-br from-white to-periwinkle-accent/20">
       <div className="flex justify-between items-start mb-md">
         <div>
           <h3 className="font-headline-md text-headline-md text-slate-blue">
@@ -37,7 +38,7 @@ function SettingBillingCard() {
           Cancel Subscription
         </button>
       </div>
-    </div>
+    </FadeInSection>
   )
 }
 

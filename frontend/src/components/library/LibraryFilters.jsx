@@ -1,4 +1,5 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 /**
  * LibraryFilters
@@ -8,7 +9,7 @@ function LibraryFilters() {
   return (
     <section className="flex flex-col gap-sm mb-xl">
       {/* Content Type row */}
-      <div className="flex items-center gap-md pb-xs border-b border-outline-variant/20 overflow-x-auto no-scrollbar">
+      <FadeInSection className="flex items-center gap-md pb-xs border-b border-outline-variant/20 overflow-x-auto no-scrollbar">
         <span className="font-label-md text-label-md text-on-surface-variant shrink-0 w-24">
           Content Type:
         </span>
@@ -26,10 +27,10 @@ function LibraryFilters() {
             Course
           </button>
         </div>
-      </div>
+      </FadeInSection>
 
       {/* Topics row */}
-      <div className="flex items-center gap-md overflow-x-auto no-scrollbar mt-xs">
+      <FadeInSection className="flex items-center gap-md overflow-x-auto no-scrollbar mt-xs">
         <span className="font-label-md text-label-md text-on-surface-variant shrink-0 w-24">
           Topics:
         </span>
@@ -47,7 +48,7 @@ function LibraryFilters() {
             Systems Design
           </button>
         </div>
-      </div>
+      </FadeInSection>
     </section>
   )
 }

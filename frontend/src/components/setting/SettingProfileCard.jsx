@@ -1,8 +1,9 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 function SettingProfileCard() {
   return (
-    <div className="settings-card rounded-2xl p-lg flex flex-col md:flex-row gap-lg items-start">
+    <FadeInSection className="settings-card rounded-2xl p-lg flex flex-col md:flex-row gap-lg items-start">
       <div className="relative group">
         <div className="w-32 h-32 rounded-2xl overflow-hidden border-4 border-periwinkle-accent/30">
           <img
@@ -57,7 +58,7 @@ function SettingProfileCard() {
           </button>
         </div>
       </div>
-    </div>
+    </FadeInSection>
   )
 }
 

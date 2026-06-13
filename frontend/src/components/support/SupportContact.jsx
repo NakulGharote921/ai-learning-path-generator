@@ -1,6 +1,8 @@
+import FadeInSection from "../home/FadeInSection"
+
 function SupportContact() {
   return (
-    <section className="px-margin py-xl max-w-max_width mx-auto">
+    <FadeInSection className="px-margin py-xl max-w-max_width mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
         <div className="bg-white p-lg rounded-xl shadow-sm text-center border border-outline-variant/20">
           <div className="w-14 h-14 bg-surface-container-high rounded-full flex items-center justify-center mx-auto mb-md">
@@ -38,7 +40,7 @@ function SupportContact() {
           </div>
         </div>
       </div>
-    </section>
+    </FadeInSection>
   )
 }
 

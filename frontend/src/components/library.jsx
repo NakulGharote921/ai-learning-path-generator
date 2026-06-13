@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidebar from './dashboard/Sidebar'
 import MobileTopNav from './dashboard/MobileTopNav'
 import MobileBottomNav from './dashboard/MobileBottomNav'
@@ -11,6 +11,25 @@ import ResourceGrid from './library/ResourceGrid'
  * Shares the same Sidebar/navigation shell as Dashboard & Roadmap.
  */
 function Laibray() {
+   useEffect(() => {
+       window.scrollTo({
+        top:0,
+        left:0,
+        behavior:'smooth'
+      })
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible')
+          })
+        },
+        { threshold: 0.15 }
+      )
+  
+      document.querySelectorAll('.fade-in-up').forEach((element) => observer.observe(element))
+     
+      return () => observer.disconnect()
+    }, [])
   return (
     <div>
       <style

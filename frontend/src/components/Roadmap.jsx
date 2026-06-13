@@ -1,14 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidebar from './dashboard/Sidebar'
 import MobileTopNav from './dashboard/MobileTopNav'
 import MobileBottomNav from './dashboard/MobileBottomNav'
 import RoadmapTimeline from './roadmap/RoadmapTimeline'
+import FadeInSection from './home/FadeInSection'
 
 /**
  * Roadmap — Full-page learning path view.
  * Shares the same Sidebar/navigation shell as the Dashboard.
  */
 function Roadmap() {
+   useEffect(() => {
+       window.scrollTo({
+        top:0,
+        left:0,
+        behavior:'smooth'
+      })
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible')
+          })
+        },
+        { threshold: 0.15 }
+      )
+  
+      document.querySelectorAll('.fade-in-up').forEach((element) => observer.observe(element))
+     
+      return () => observer.disconnect()
+    }, [])
   return (
     <div>
       <style
@@ -51,7 +71,7 @@ function Roadmap() {
       {/* Main content */}
       <main className="main-content md:ml-64 p-margin pt-24 md:pt-margin pb-32 md:pb-margin min-h-screen">
         {/* Page header */}
-        <header className="max-w-4xl mx-auto mb-xl">
+        <FadeInSection className="max-w-4xl mx-auto mb-xl">
           <h1 className="font-headline-xl text-headline-xl text-primary mb-sm">
             Learning Path
           </h1>
@@ -59,7 +79,7 @@ function Roadmap() {
             Track your progress through the core curriculum. Your customised
             journey adapts as you master concepts alongside your AI Tutor.
           </p>
-        </header>
+        </FadeInSection>
 
         {/* Timeline */}
         <RoadmapTimeline />

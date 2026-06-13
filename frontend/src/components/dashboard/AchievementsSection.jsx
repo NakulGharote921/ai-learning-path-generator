@@ -1,8 +1,9 @@
 import React from 'react'
+import FadeInSection from '../home/FadeInSection'
 
 function AchievementsSection() {
   return (
-    <section className="bg-white rounded-[24px] p-margin shadow-soft border border-primary/10 mb-margin md:mb-0">
+    <FadeInSection className="bg-white rounded-[24px] p-margin shadow-soft border border-primary/10 mb-margin md:mb-0">
       <h2 className="font-headline-md text-headline-md text-deep-slate-blue mb-md">
         Recent Achievements
       </h2>
@@ -59,7 +60,7 @@ function AchievementsSection() {
           </div>
         </div>
       </div>
-    </section>
+    </FadeInSection>
   )
 }
 

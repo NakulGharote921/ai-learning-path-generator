@@ -1,5 +1,6 @@
 import React from 'react'
 import ResourceCard from './ResourceCard'
+import FadeInSection from '../home/FadeInSection'
 
 /** Static resource data — replace with API call when ready */
 const resources = [
@@ -46,7 +47,7 @@ const resources = [
  */
 function ResourceGrid() {
   return (
-    <>
+    <FadeInSection>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
         {resources.map((resource) => (
           <ResourceCard key={resource.id} {...resource} />
@@ -59,7 +60,7 @@ function ResourceGrid() {
           Load More Resources
         </button>
       </div>
-    </>
+    </FadeInSection>
   )
 }
 

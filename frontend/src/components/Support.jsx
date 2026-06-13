@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidebar from './dashboard/Sidebar'
 import SupportStyles from './support/SupportStyles'
 import SupportHero from './support/SupportHero'
 import SupportCards from './support/SupportCards'
 import SupportFaq from './support/SupportFaq'
 import SupportContact from './support/SupportContact'
+import FadeInSection from './home/FadeInSection'
 
 function Support() {
+   useEffect(() => {
+       window.scrollTo({
+        top:0,
+        left:0,
+        behavior:'smooth'
+      })
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible')
+          })
+        },
+        { threshold: 0.15 }
+      )
+  
+      document.querySelectorAll('.fade-in-up').forEach((element) => observer.observe(element))
+     
+      return () => observer.disconnect()
+    }, [])
   return (
     <div>
       <div>
@@ -37,7 +57,7 @@ function Support() {
         <SupportCards />
         <SupportFaq />
         <SupportContact />
-        <footer className="w-full py-xl bg-surface dark:bg-inverse-surface border-t border-outline-variant/30 dark:border-outline/20">
+        <FadeInSection className="w-full py-xl bg-surface dark:bg-inverse-surface border-t border-outline-variant/30 dark:border-outline/20">
           <div className="max-w-max_width mx-auto px-margin flex flex-col md:flex-row justify-between items-center gap-md">
             <div>
               <h5 className="font-headline-md text-headline-md font-bold text-primary">Cognitive Flow</h5>
@@ -58,7 +78,7 @@ function Support() {
               </a>
             </div>
           </div>
-        </footer>
+        </FadeInSection>
       </main>
     </div>
   )
