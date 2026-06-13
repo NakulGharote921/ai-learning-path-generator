@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const navItems = [
+  { to: '/dashboard',   icon: 'bar_chart_4_bars',        label: 'Dashboard' },
   { to: '/roadmap',   icon: 'map',           label: 'Roadmap' },
   { to: '/ai-tutor',  icon: 'smart_toy',     label: 'AI Tutor' },
   { to: '/library',   icon: 'book_5',        label: 'Library' },
@@ -89,6 +90,15 @@ function Sidebar() {
         >
           <span className="material-symbols-outlined">help</span>
           Support
+        </NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `flex items-center gap-sm rounded-lg px-md py-sm transition-all duration-200 hover:translate-x-1 ${isActive ? 'bg-primary-container text-on-primary-container' : 'text-on-surface-variant hover:bg-surface-variant/50'}`
+          }
+        >
+          <span className="material-symbols-outlined">logout</span>
+          Logout
         </NavLink>
       </div>
     </aside>

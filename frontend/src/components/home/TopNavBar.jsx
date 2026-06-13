@@ -35,7 +35,7 @@ function TopNavBar() {
           </Link>
           <Link
             className="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-primary/5 transition-colors duration-200 px-3 py-2 rounded-md"
-            to="/"
+            to="/pricing"
           >
             Pricing
           </Link>

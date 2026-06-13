@@ -11,7 +11,7 @@ function SignUpForm() {
     if(data.password !== conformPassword) return setPasswordError("Password not matched")
       setPasswordError(null)
     console.log(data);
-    navigate('/assessment')
+    navigate('/dashboard')
 
     
   }

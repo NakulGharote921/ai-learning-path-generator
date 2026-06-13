@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import FadeInSection from '../components/home/FadeInSection'
+import TopNavBar from '../components/home/TopNavBar'
 
 function Resources() {
   useEffect(() => {
@@ -23,6 +24,7 @@ function Resources() {
 
   return (
     <div>
+      <TopNavBar/>
       <div>
   <meta charSet="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />

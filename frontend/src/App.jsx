@@ -14,14 +14,14 @@ import Methodology from './pages/Methodology'
 import Features from './pages/Features'
 import SignIn from './pages/SignIn'
 import Resources from './pages/Resources'
-import TopNavBar from './components/home/TopNavBar'
+import Pricing from './pages/Pricing'
+import AiTutor from './components/AiTutor'
 
 
 
 function App() {
   return (
     <BrowserRouter>
-    <TopNavBar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
@@ -35,9 +35,11 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Setting />} />
         <Route path="/support" element={<Support />} />
-        <Route path="/methodology" element={<Methodology />} />
         <Route path="/features" element={<Features />} />
+        <Route path="/methodology" element={<Methodology />} />
+        <Route path="/pricing" element={<Pricing />} />
         <Route path="/resources" element={<Resources/>}/>
+        <Route path="/ai-tutor" element={<AiTutor/>}/>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

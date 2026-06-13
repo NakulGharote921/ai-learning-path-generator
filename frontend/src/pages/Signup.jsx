@@ -2,10 +2,12 @@ import React from 'react'
 import SignUpStyle from '../components/SignUp/SignUpStyles'
 import SignUpBrandPanel from '../components/SignUp/SignUpBrandPanel'
 import SignUpForm from '../components/SignUp/SignUpForm'
+import TopNavBar from '../components/home/TopNavBar'
 
 function Signup() {
   return (
-    <div>
+    <div className='mt-4'>
+      <TopNavBar/>
       <div>
         <meta charSet="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />

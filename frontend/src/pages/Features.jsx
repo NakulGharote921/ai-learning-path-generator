@@ -6,6 +6,7 @@ import FeaturesSecondary from '../components/features/FeaturesSecondary'
 import FeaturesCTA from '../components/features/FeaturesCTA'
 import FeaturesFooter from '../components/features/FeaturesFooter'
 import FadeInSection from '../components/home/FadeInSection'
+import TopNavBar from '../components/home/TopNavBar'
 
 function Features() {
    useEffect(() => {
@@ -29,6 +30,7 @@ function Features() {
   }, [])
   return (
     <div>
+      <TopNavBar/>
       <div>
         <meta charSet="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
