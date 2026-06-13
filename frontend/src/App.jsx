@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Assessment from './pages/Assessment'
-import Signup from './components/Signup'
+import Signup from './pages/Signup'
 import DashBoard from './pages/DashBoard'
 import Analytics from './components/Analytics'
 import Roadmap from './components/Roadmap'
@@ -25,6 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/signIn" element={<SignIn />} />
         <Route path="/assessment" element={<Assessment />} />
         <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/analytics" element={<Analytics />} />
@@ -36,7 +37,6 @@ function App() {
         <Route path="/support" element={<Support />} />
         <Route path="/methodology" element={<Methodology />} />
         <Route path="/features" element={<Features />} />
-        <Route path="/signIn" element={<SignIn />} />
         <Route path="/resources" element={<Resources/>}/>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

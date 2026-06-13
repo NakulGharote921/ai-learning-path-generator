@@ -37,11 +37,7 @@ function AssessmentWizard() {
       setActiveStep((step) => step + 1)
       return
     }
-    if(false){
-      navigate('/dashboard')
-    }else{
       navigate('/signup')
-    }
   }
 
   const handleBack = () => {
@@ -79,7 +75,15 @@ function AssessmentWizard() {
         }}
       />
 
-      <header className="w-full py-md px-margin flex justify-center items-center fixed top-0 z-50 bg-[#FFF8DE]/90 backdrop-blur-sm">
+      <header className="w-full py-md px-margin flex justify-center items-center fixed top-0 z-50 bg-[#FFF8DE]/90 backdrop-blur-sm relative">
+        <button
+          type="button"
+          onClick={() => navigate('/')}
+          className="absolute left-4 top-2/3 -translate-y-1/2 rounded-full p-2 text-on-surface hover:bg-surface-variant transition"
+          aria-label="Close and return home"
+        >
+          <span className="material-symbols-outlined">close</span>
+        </button>
         <div className="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2">
           <span className="material-symbols-outlined" style={{ fontVariationSettings: '"FILL" 1' }}>
             psychology

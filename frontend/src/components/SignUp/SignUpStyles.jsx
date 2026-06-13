@@ -1,4 +1,4 @@
-function LoginStyles() {
+function SignUpStyle() {
   return (
     <style
       dangerouslySetInnerHTML={{
@@ -31,4 +31,4 @@ function LoginStyles() {
   )
 }
 
-export default LoginStyles
+export default SignUpStyle

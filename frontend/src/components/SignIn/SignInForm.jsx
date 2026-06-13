@@ -186,7 +186,7 @@ function SignInForm() {
           Don't have an account?{' '}
           <a
             className="font-label-md text-label-md text-primary hover:text-primary-container transition-colors"
-            href="#"
+            href="/signup"
           >
             Create one now
           </a>

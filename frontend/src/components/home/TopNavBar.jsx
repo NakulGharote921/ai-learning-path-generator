@@ -56,7 +56,7 @@ function TopNavBar() {
           </Link>
           <Link
             className="inline-flex items-center justify-center font-label-md text-label-md bg-[#FF7444] text-white px-6 py-2.5 rounded-lg shadow-button hover:bg-[#e6683d] scale-95 active:scale-90 transition-transform font-bold tracking-wide"
-            to="/signup"
+            to="/assessment"
           >
             Get Started
           </Link>

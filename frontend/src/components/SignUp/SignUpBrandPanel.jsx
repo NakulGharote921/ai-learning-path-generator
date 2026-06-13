@@ -1,4 +1,4 @@
-function LoginBrandPanel() {
+function SignUpBrandPanel() {
   return (
     <section className="hidden md:flex md:w-1/2 relative network-gradient items-center justify-center overflow-hidden">
       <div className="absolute inset-0 opacity-20 pointer-events-none">
@@ -40,4 +40,4 @@ function LoginBrandPanel() {
   )
 }
 
-export default LoginBrandPanel
+export default SignUpBrandPanel
